@@ -42,7 +42,7 @@ header {
   div {
     width: 320px;
     height: 129px;
-    background-color: yellow;
+    background-color: red;
   }
 
   &.left { @include first; }
