@@ -1,0 +1,23 @@
+/**********************************/
+/* Header
+/*********************************/
+header {
+  @include container;
+
+  padding-top: 68px;
+
+  h1 {
+    @include spr("logo");
+    @include hide-text;
+    height: 91px;
+    margin-top: -40px;
+    @include column(2);
+  }
+
+  h6 {
+    margin: 0;
+    color: $darkFont;
+    @include column(3);
+  }
+
+}

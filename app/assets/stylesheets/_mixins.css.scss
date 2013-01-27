@@ -1,0 +1,48 @@
+/**********************************/
+/* Mixins
+/*********************************/
+@mixin setHeadingSize($from, $to, $baseSize, $subtractBy) {
+  $currentNumber: $from;
+  $currentSize: $baseSize;
+  $to: $to + 1;
+  @while $currentNumber != $to {
+    h#{$currentNumber} {
+      font-size: $currentSize;
+    }
+    $currentNumber: $currentNumber + 1;
+    $currentSize: $currentSize - $subtractBy;
+  }
+}
+
+@mixin first {
+  @include alpha;
+}
+
+@mixin last {
+  @include omega;
+}
+
+@mixin round_button($buttonBaseColor: #e95d4b) {
+  @include background(
+      linear-gradient(
+        saturate(lighten($buttonBaseColor, 10%), 5%),
+        darken($buttonBaseColor, 10px)
+      )
+  );
+
+  @include box-shadow(#eaeaea 0 0 0 4px, fade-out(white, 0.75) 0 1px 0 1px inset);
+  border: $buttonBaseColor 1px solid;
+
+  &:hover {
+    $buttonBaseColor: saturate(lighten($buttonBaseColor, 5%), 10%);
+    @include background(
+        linear-gradient(
+          saturate(lighten($buttonBaseColor, 10%), 5%),
+          darken($buttonBaseColor, 10px)
+        )
+    );
+
+    @include box-shadow(#eaeaea 0 0 0 4px, fade-out(white, 0.75) 0 1px 0 1px inset);
+    border: $buttonBaseColor 1px solid;
+  }
+}

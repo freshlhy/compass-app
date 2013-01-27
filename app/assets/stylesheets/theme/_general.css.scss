@@ -1,0 +1,86 @@
+/**********************************/
+/* General
+/*********************************/
+.pattern {
+  background: image-url('pattern.png') repeat;
+}
+
+.wrapper {
+  @include wrapper;
+}
+
+body {
+  background-color: $bgColor;
+  color: $lightFont;
+  font-size: $font_size;
+  line-height: $line_height;
+}
+
+a {
+  color: $linkHover;
+  text-decoration: none;
+  &:hover {
+    color: $linkColor;
+  }
+}
+
+#{headings(all)} {
+  color: $darkFont;
+}
+
+@include setHeadingSize(1, 6, 24px, 2px);
+
+
+.button {
+  $buttonBaseColor: #27ADC1;
+
+  padding: $padding / 2 $padding * 2;
+  border-radius: 5px;
+  text-shadow: fade-out(black, 0.85) 0 2px 2px;
+  color: white;
+  font-size: 13px;
+  display: inline-block;
+
+  @include background(linear-gradient(
+    saturate(lighten($buttonBaseColor, 10%), 5%),
+    darken($buttonBaseColor, 10%)
+  ));
+
+  @include box-shadow(transparentize(white, 0.75) 0 1px 0 1px inset);
+  border: 1px solid darken($buttonBaseColor, 10%);
+
+  &:hover {
+    color: #ffffff;
+    @include background(linear-gradient(
+      darken($buttonBaseColor, 5%),
+      saturate(lighten($buttonBaseColor, 5%), 5%)
+    ));
+    border-color: darken($buttonBaseColor, 10%);
+  }
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

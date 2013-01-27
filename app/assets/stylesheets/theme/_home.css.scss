@@ -1,0 +1,112 @@
+/**********************************/
+/* Introduction
+/*********************************/
+.introduction {
+  @extend .pattern;
+  @include fullwidth($_subtract: $padding * 4);
+  padding: $padding * 2;
+  margin: $verticalSpace 0 0;
+
+  text-align: center;
+  font-family: $emFont;
+  font-style: italic;
+
+  border-top: 1px dotted #c6c6c6;
+  line-height:  36px;
+
+  font-size: 24px;
+
+  color: $darkFont;
+
+  em {
+    color: $emColor;
+    font-weight: bold;
+  }
+}
+
+/**********************************/
+/* Slider
+/*********************************/
+#slider {
+  @include fullwidth;
+  @extend .pattern;
+
+  padding-bottom: $padding / 2;
+  position: relative;
+
+  .navControl {
+    @include hide-text;
+    position: absolute;
+    top: 45%;
+
+    display: block;
+    width: 33px;
+    height: 33px;
+
+    &:hover {
+      cursor: pointer;
+    }
+
+    &.left {
+      @include spr(arrowLeft);
+      left: $padding;
+    }
+
+    &.right {
+      @include spr(arrowRight);
+      right: $padding;
+    }
+  }
+  ul {
+    @include no-bullets;
+    position: absolute;
+    bottom: $padding;
+    left: 0;
+
+    height: 10px;
+    width: get_width(3);
+  }
+
+  li {
+    float: left;
+    @include spr(dot);
+
+    width: 10px;
+    height: 10px;
+
+    padding-right: 7px;
+
+    &.active {
+      @include spr(dot_active);
+    }
+  }
+}
+
+/**********************************/
+/* Pitch
+/*********************************/
+.pitch {
+
+  @include column($_columns / 3, $padding);
+  padding-right: $padding;
+
+  div {
+    width: 320px;
+    height: 129px;
+    background-color: green;
+  }
+
+  &.left {
+    @include first;
+  }
+  &.right {
+    @include last;
+  }
+
+  &.left div { @include pitch-sprite(amazing); }
+  &.middle div { @include pitch-sprite(fast); }
+  &.right div { @include pitch-sprite(branding); }
+
+}
+
+

@@ -1,0 +1,86 @@
+aside {
+  background-color: #ebeef1;
+  border-top: #e1e5ea solid 5px;
+  margin-top: $verticalSpace;
+  padding: $verticalSpace 0;
+
+  &:before {
+    content:"";
+    @extend .pattern;
+    display: block;
+    height: $padding;
+    margin-top: -( $padding + $verticalSpace + 5px );
+  }
+
+  section {
+    @include column($_columns / 4);
+  }
+
+  .about {
+    @include first;
+    .button {
+      margin: $padding 0 0;
+    }
+  }
+
+  .contacts {
+    @include last;
+
+    $social: facebook, twitter, dribbble, skype;
+
+    @each $net in $social {
+      .#{$net} {
+        float: left;
+        line-height: 34px;
+        margin-bottom: 12px;
+
+        &:before {
+          content: "";
+          width: 32px;
+          height: 34px;
+          float: left;
+          display: block;
+          margin-right: $padding;
+          @include spr("s#{$net}");
+        }
+      }
+    }
+  }
+
+  .tweet {
+    display: block;
+    font-size: 12px;
+    span {
+      font-size: 11px;
+      color: lighten($lightFont, 10%);
+      display: block;
+      margin: 0 0 $padding;
+    }
+  }
+}
+
+footer {
+  font: {
+    family: $emFont;
+    style: italic;
+  }
+
+  background: #404449 image-url("patternDark.png") repeat-x bottom;
+  height: 88px - $padding * 4;
+  padding: $padding * 2;
+
+  color: darken($bgColor, 5%);
+
+  a {
+    color: $emColor;
+  }
+
+}
+
+#bottomLogo {
+  width: 185px;
+  height: 60px;
+  float: right;
+  @include spr("bottomLogo");
+  margin-top: -1px;
+}

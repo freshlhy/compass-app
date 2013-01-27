@@ -1,0 +1,31 @@
+/**********************************/
+/* Navigation
+/*********************************/
+nav {
+  @include column($_columns - 5);
+
+  font: {
+    size: 13px;
+    weight: bold;
+  }
+
+  a {
+    text-decoration: none;
+    color: darken($lightFont, 5%);
+    &:hover {
+      color: $emColor;
+    }
+  }
+
+  ul {
+    @include horizontal-list;
+    float: right;
+    //margin-right: -20px;
+    padding: 0 $padding;
+  }
+
+  li {
+    text-align: right;
+    margin-right: $padding;
+  }
+}
